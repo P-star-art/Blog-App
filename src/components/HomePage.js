@@ -1,15 +1,20 @@
 import React from 'react';
-import GoogleLogin from 'react-google-login'
+import GoogleLogin from 'react-google-login';
+import { useSelector } from 'react-redux';
+import { selectSignedIn } from '../features/userSlice';
 
 const HomePage = () => {
 
     const login = (response) => {
          console.log(response)
-     }
+    }
+    
+    const isSignedIn = useSelector(selectSignedIn);
 
     return (
-        <div className="home__page">
-            <div className="login__message">
+        <div className="home__page" style={{display: isSignedIn ? "none" : ""}}>
+            {
+                !isSignedIn ? <div className="login__message">
                 <h2>📗</h2>
                 <h1>A Readers Favourite Place!</h1>
                 <p>We provide high quality online resources from reading blogs. Just sign up and start reading some quality blogs.</p>
@@ -29,7 +34,8 @@ const HomePage = () => {
                     isSignedIn={true}
                     cookiePolicy={"single_host_origin"}
                 />
-            </div>
+            </div> : <h1>Blogs will be displayed here</h1>
+            }
         </div>
     )
 }
