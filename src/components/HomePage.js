@@ -2,6 +2,7 @@ import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { useSelector } from 'react-redux';
 import { selectSignedIn } from '../features/userSlice';
+import '../styles/homePage.css';
 
 const HomePage = () => {
 
