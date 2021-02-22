@@ -8,6 +8,7 @@ import {
   setSignedIn,
   setUserData,
 } from "../features/userSlice";
+import '../styles/navbar.css';
 
 
 const Navbar = () => {

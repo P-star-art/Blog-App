@@ -3,7 +3,6 @@ import GoogleLogin from 'react-google-login';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSignedIn, setSignedIn, setUserData } from '../features/userSlice';
 import '../styles/homePage.css';
-import Navbar from './Navbar';
 
 const HomePage = () => {
     
