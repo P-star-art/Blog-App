@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectSearchInput, setBlogData } from '../features/userSlice';
+import '../styles/Blogs.css';
 
 
 const Blogs = () => {
@@ -17,7 +18,6 @@ const Blogs = () => {
         axios
             .get(blog_url)
             .then(response => {
-                console.log(response.data);
                 dispatch(setBlogData(response.data));
                 setBlogs(response.data);
                 setLoading(false);
@@ -32,7 +32,7 @@ const Blogs = () => {
             <h1 className="blog__page__header">Blogs</h1>
             {loading ? <h1 className="loading">Loading...</h1> : ""}
             <div className="blogs">
-                {blogs.articles.map(blog => (
+                {blogs?.articles?.map(blog => (
                     <a className="blog" target="_blank" href={blog.url}>
                         <img src={blog.image} />
                         <div>
